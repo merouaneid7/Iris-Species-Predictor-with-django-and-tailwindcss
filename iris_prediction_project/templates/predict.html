@@ -1,0 +1,45 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Iris</title>
+</head>
+<body class="bg-gray-100  mx-auto flex justify-center items-center h-screen">
+    <div class="max-w-md w-full p-6  ">
+        <h2 class="text-2xl font-bold mb-4">Enter Iris Data</h2>
+    <form method="post" class="max-w-md">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="sepal_length" class="block text-sm font-medium text-gray-700">Sepal Length:</label>
+            <input type="text" id="sepal_length" name="sepal_length" class="mt-1 focus:ring-stone-600 focus:border-storing-stone-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="sepal_width" class="block text-sm font-medium text-gray-700">Sepal Width:</label>
+            <input type="text" id="sepal_width" name="sepal_width" class="mt-1 focus:ring-stone-600 focus:border-storing-stone-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="petal_length" class="block text-sm font-medium text-gray-700">Petal Length:</label>
+            <input type="text" id="petal_length" name="petal_length" class="mt-1 focus:ring-stone-600 focus:border-storing-stone-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="petal_width" class="block text-sm font-medium text-gray-700">Petal Width:</label>
+            <input type="text" id="petal_width" name="petal_width" class="mt-1 focus:ring-stone-600 focus:border-storing-stone-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+        </div>
+        <div class="mb-4">
+            <label for="selected_model" class="block text-sm font-medium text-gray-700">Select Model:</label>
+            <select id="selected_model" name="selected_model" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-stone-600 focus:border-string-stone-600 sm:text-sm">
+                <option value="KNN">KNN</option>
+                <option value="CNN">CNN</option>
+                <option value="ANN">ANN</option>
+                <option value="Logistic Regression">Logistic Regression</option>
+                <option value="SVM">SVM</option>
+            </select>
+        </div>
+        <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-stone-600  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-600">Predict</button>
+    </form>
+    </div>
+</body>
+</html>

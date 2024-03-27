@@ -1,0 +1,36 @@
+{% load static %}
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% tailwind_css %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="max-w-md w-full p-6  text-center">
+      <div class="mb-5">
+        <h2 class="text-2xl font-bold mb-4">Prediction Result</h2>
+        <p class="mb-5">Predicted Class: {{ predicted_class }}</p>
+        {% if predicted_class == "setosa" %}
+
+        <img src="{% static 'Irissetosa1.jpg' %}" alt="My image">
+
+        {% elif predicted_class == "virginica" %}
+        <img src="{% static 'iris_virginica_virginica_lg.jpg' %}" alt="My image">
+       
+
+        {% elif predicted_class == "versicolor" %}
+        <img src="{% static 'Blue_Flag,_Ottawa.jpg' %}" class="mb-10" alt="My image">
+
+        {% endif %}
+      </div>
+        <div class="mt-5"><a href="{% url 'home' %}" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-black focus:ring-4 focus:ring-gray-100 bg-stone-600">
+            
+            Back home !
+         </a> </div>
+    </div>
+    
+</body>
+</html>
